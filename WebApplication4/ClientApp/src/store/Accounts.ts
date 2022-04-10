@@ -15,6 +15,13 @@ export interface Accounts {
     accountNumber: string;
     businessType: number;
     clientType: string;
+    businessName: string;
+    description: string;
+    currentInsurer: string;
+    fullTime: string;
+    partTime: string;
+
+
 }
 
 // -----------------

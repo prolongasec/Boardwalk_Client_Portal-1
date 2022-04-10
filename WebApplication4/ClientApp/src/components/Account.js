@@ -20,6 +20,7 @@ var react_redux_1 = require("react-redux");
 var Accountsidebar_1 = require("./Accountsidebar");
 var NavMenu_1 = require("./NavMenu");
 var AccountsStore = require("../store/Accounts");
+var Accordion_1 = require("./Accordion");
 var Account = /** @class */ (function (_super) {
     __extends(Account, _super);
     function Account() {
@@ -36,17 +37,36 @@ var Account = /** @class */ (function (_super) {
         var startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
         this.props.requestAccounts(startDateIndex);
     };
+    Account.prototype.showAccounts = function () {
+        console.log(this.props.Account);
+        return (React.createElement("div", null, this.props.Account.map(function (d) {
+            return React.createElement("div", null,
+                React.createElement(Accordion_1.CustomAccordion, { key: d.id, title: "Account Number: " + d.accountNumber.toString(), content: React.createElement("div", null,
+                        React.createElement("p", null,
+                            "Business: ",
+                            d.businessName),
+                        React.createElement("p", null,
+                            "Insurer: ",
+                            d.currentInsurer),
+                        React.createElement("p", null,
+                            "Description: ",
+                            d.description),
+                        React.createElement("p", null,
+                            "Full Time: ",
+                            d.fullTime),
+                        React.createElement("p", null,
+                            "Part Time: ",
+                            d.partTime)) }),
+                React.createElement("br", null));
+        })));
+    };
     Account.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
             React.createElement(NavMenu_1.default, null),
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
                     React.createElement(Accountsidebar_1.default, null)),
-                React.createElement("div", { className: 'col-8' },
-                    React.createElement("p", null, "Account Number:"),
-                    React.createElement("div", null, this.props.Account.map(function (pol) {
-                        return React.createElement("p", { key: pol.id }, pol.accountNumber);
-                    }))))));
+                React.createElement("div", { className: 'col-8' }, this.showAccounts()))));
     };
     return Account;
 }(React.PureComponent));

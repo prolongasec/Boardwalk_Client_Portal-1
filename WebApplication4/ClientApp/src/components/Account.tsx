@@ -8,6 +8,7 @@ import NavMenu from './NavMenu';
 import { RouteComponentProps } from 'react-router';
 import { ApplicationState } from '../store';
 import * as AccountsStore from '../store/Accounts';
+import { CustomAccordion } from './Accordion';
 
 type AccountsProps =
     AccountsStore.AccountsState// ... state we've requested from the Redux store
@@ -27,7 +28,26 @@ class Account extends React.PureComponent<AccountsProps> {
         const startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
         this.props.requestAccounts(startDateIndex);
     }
-
+    private showAccounts() {
+        console.log(this.props.Account);
+        return (
+            <div>
+                {this.props.Account.map((d: AccountsStore.Accounts) =>
+                    <div>
+                        <CustomAccordion key={d.id} title={"Account Number: " + d.accountNumber.toString()}
+                            content={<div>
+                                <p>Business: {d.businessName}</p>
+                                <p>Insurer: {d.currentInsurer}</p>
+                                <p>Description: {d.description}</p>
+                                <p>Full Time: {d.fullTime}</p>
+                                <p>Part Time: {d.partTime}</p>
+                            </div>} />
+                        <br />
+                    </div>
+                )}
+            </div>
+        );
+    }
     public render() {
 
         return (
@@ -38,16 +58,7 @@ class Account extends React.PureComponent<AccountsProps> {
                         <Accountsidebar />
                     </div>
                     <div className='col-8'>
-                        <p>Account Number:</p>
-                        <div>
-                            {
-                                this.props.Account.map((pol: AccountsStore.Accounts) =>
-                                    <p key={pol.id}>
-                                        {pol.accountNumber}
-                                    </p>
-                                )
-                            }
-                        </div>
+                        {this.showAccounts()}
                     </div>
                 </div>
             </React.Fragment>

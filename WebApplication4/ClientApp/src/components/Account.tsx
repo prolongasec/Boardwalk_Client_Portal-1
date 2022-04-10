@@ -4,6 +4,7 @@ import { Link, Route } from 'react-router-dom';
 import { NavLink } from 'reactstrap';
 import homepageLayout from './Layout';
 import Accountsidebar from './Accountsidebar'
+import NavMenu from './NavMenu';
 import { RouteComponentProps } from 'react-router';
 import { ApplicationState } from '../store';
 import * as AccountsStore from '../store/Accounts';
@@ -31,6 +32,7 @@ class Account extends React.PureComponent<AccountsProps> {
 
         return (
             <React.Fragment>
+                <NavMenu />
                 <div className='row'>
                     <div className='col-4'>
                         <Accountsidebar />

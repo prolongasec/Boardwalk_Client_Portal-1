@@ -41,6 +41,7 @@ import ReviewAddLocations from './components/ReviewAddLocations';
 import ReviewRemoveLocations from './components/ReviewRemoveLocations';
 import ReviewAddEquipments from './components/ReviewAddEquipments';
 import ReviewRemoveEquipments from './components/ReviewRemoveEquipments';
+import Changepwd from './Routes/Changepwd';
 export default () => (
     <div>
       <BrowserRouter>     
@@ -83,6 +84,7 @@ export default () => (
             <Route path='/review-remove-locations' component={ReviewRemoveLocations} />
             <Route path='/review-add-equipments' component={ReviewAddEquipments} />
             <Route path='/review-remove-equipments' component={ReviewRemoveEquipments} />
+            <Route path='/Changepassword' component={Changepwd} />
          </BrowserRouter>
     </div>
 );

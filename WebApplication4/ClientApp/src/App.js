@@ -43,6 +43,7 @@ var ReviewAddLocations_1 = require("./components/ReviewAddLocations");
 var ReviewRemoveLocations_1 = require("./components/ReviewRemoveLocations");
 var ReviewAddEquipments_1 = require("./components/ReviewAddEquipments");
 var ReviewRemoveEquipments_1 = require("./components/ReviewRemoveEquipments");
+var Changepwd_1 = require("./Routes/Changepwd");
 exports.default = (function () { return (React.createElement("div", null,
     React.createElement(react_router_dom_1.BrowserRouter, null,
         React.createElement(react_router_1.Route, { exact: true, path: "/", component: LoginForm_1.default }),
@@ -83,5 +84,6 @@ exports.default = (function () { return (React.createElement("div", null,
         React.createElement(react_router_1.Route, { path: '/review-add-locations', component: ReviewAddLocations_1.default }),
         React.createElement(react_router_1.Route, { path: '/review-remove-locations', component: ReviewRemoveLocations_1.default }),
         React.createElement(react_router_1.Route, { path: '/review-add-equipments', component: ReviewAddEquipments_1.default }),
-        React.createElement(react_router_1.Route, { path: '/review-remove-equipments', component: ReviewRemoveEquipments_1.default })))); });
+        React.createElement(react_router_1.Route, { path: '/review-remove-equipments', component: ReviewRemoveEquipments_1.default }),
+        React.createElement(react_router_1.Route, { path: '/Changepassword', component: Changepwd_1.default })))); });
 //# sourceMappingURL=App.js.map

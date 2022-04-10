@@ -48,7 +48,7 @@ export const actionCreators = {
         // Only load data if it's something we don't already have (and are not already loading)
         const appState = getState();
         if (appState && appState.Files && startDateIndex !== appState.Files.startDateIndex) {
-            fetch(`api/Files/Index`)
+            fetch(`api/FileInfos/Index`)
                 .then(response => response.json() as Promise<Files[]>)
                 .then(data => {
                     dispatch({ type: 'RECEIVE_FILES', startDateIndex: startDateIndex, File: data });
